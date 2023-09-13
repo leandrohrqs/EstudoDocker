@@ -47,3 +47,35 @@
 ## Executando container em background
 
 ![Alt text](img/exec-cont-back.png)
+
+## Expor portas
+
+![Alt text](img/expor-portas.png)
+
+## Parando containers
+
+- Utilize: `docker stop <id ou nome-do-container>`
+
+## Iniciando containers
+
+- Utilize: `docker start <id ou nome-do-container>`
+
+## Dando nome a um container
+
+- Utilize a flag `--name nome-do-container`
+
+## Verificando os logs
+
+- Utilize: `docker logs <id>`
+
+## Removendo um container
+
+- Utilize: `docker rm <id>`
+
+- Caso o container esteja rodando, é só utilizar: `docker rm <id> -f`
+
+## O que são imagens
+
+![Alt text](img/oq-sao-imagens.png)
+
+## Como escolher uma imagem
