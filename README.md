@@ -227,3 +227,152 @@
 - Depois vamos fazer um push novamente para o repositório;
 
 - Assim todas as versões estarão disponíveis para serem utilizadas
+
+## Volumes
+
+- É uma forma pratica de persistir dados em aplicações e não depender de containers para isso;
+
+- Todo dado criado por um container é salvo nele, quando o container é removido, perdemos os dados;
+
+- Então precisamos dos volumes para gerenciar os dados e também conseguir fazer backups de forma simples;
+
+## Tipos de volumes
+
+- **Anônimos (anonymous volume)**: Diretórios criados pela flag `-v`, porém com um nome aleatório
+
+- **Nomeados (named volume)**: São volumes com nomes, podemos nos referir a estes facilmente e saber para que são utilizados no nosso ambiente;
+
+- **Bind mounts**: Uma forma de salvar dados na nossa máquina, sem o gerenciamento do Docker, informamos um diretório para este fim;
+
+## O problema da persistência
+
+- Se criarmos um container com alguma image, todos os arquivos que geramos dentro dele serão do container
+
+- Quando o container for removido, perdemos estes arquivos
+
+- Por isso precisamos de **volumes**;
+
+## Volumes anônimos
+
+- Criar: `docker run -v /data`
+
+- Onde /data será o diretório atrelado ao volume anonimo
+
+- Para ver os volumes anônimos: `docker volume ls`
+
+## Volumes nomeados
+
+- Criar: `docker run -v nome-do-volume:/data`
+
+- Em `docker volume ls` podemos verificar o container nomeado criado;
+
+- Da mesma maneira que p anônimo, este volume tem como função armazenar arquivos;
+
+**A pasta do volume deve ser a mesma da `WORKDIR`**
+
+## Bind mounts
+
+- É um tipo de volume, porém fica em um diretório da maquina HOST;
+
+- Então não criamos um volume, apontaremos um diretório
+
+- Criar: `docker run -v /dir/data:/data`
+
+**Atenção: `dir/data` é a pasta que iremos escolher para salvar, caso a pasta escolhida esteja em outro local, deveremos utilizar o PATH dela, exemplo: C:\pasta-a-salvar\\**
+
+- O Bind mount não serve apenas para volumes, podemos utilizar esta técnica para atualização em tempo real do projeto sem ter que refazer o build a cada atualização.
+
+## Mais sobre volumes
+
+### Criar volume manualmente
+
+- Podemo criar volumes manualmente também utilizando:
+
+- `docker volume create <nome>`
+
+- Desta maneira temos um named volume criado, podemos atrelar a algum container na execução do mesmo;
+
+### Listando todos os volumes
+
+- `docker volume ls`: lista todos os volumes
+
+### Checar um volume
+
+- `docker volume inspect <nome>`
+
+### Removendo volumes
+
+- `docker volume rm <nome>`: Ao utilizar o comando, todos os dados serão removidos
+
+- Removendo volumes em massa:
+
+- `docker volume prune`
+
+### Volume somente leitura
+
+- Para criar um volume com apenas a permissão de leitura utilizamos:
+
+- `docker run -v volume:/data:ro`
+
+## Networks no Docker
+
+- É uma forma de gerenciar a conexão do Docker com outras plataformas ou até mesmo entre containers
+
+- As redes ou networks são criadas separadas do containers, como os volumes;
+
+- Além disso existem alguns drivers de rede
+
+- Uma rede deixa muito simples a comunicação entre containers
+
+## Tipos de conexão
+
+- **Externa**: conexão com uma API de um servidor remoto;
+
+- **Com o host**: comunicação com a máquina que está executando o Docker;
+
+- **
+Entre containers**: comunicação que utiliza o driver bridge e permite comunicação entre dois ou mais containers
+
+## Tipos de Rede (drivers)
+
+- **Bridge**: O mais comum e o default do Docker, utilizado quando containers precisam se conectar
+
+- **host**: permite a conexão entre um container e a máquina que está hosteando o Docker
+
+- **macvlan**: permite a conexão a um container por um MAC address
+
+- **none**: remove todas as conexões de rede de um container
+
+- **plugins**: permite extensões de terceiros para criar outras redes
+
+## Listando networks
+
+- Para verificar todas as redes utilize: `docker network ls`
+
+- Algumas redes já estão criadas, elas fazem parte da configuração inicial do docker
+
+## Criando rede
+
+- Utilizamos `docker network create <nome>`
+
+- Está rede será do tipo bridge, que é o mais utilizado
+
+- Podemos criar diversas redes
+
+## Removendo redes
+
+- Para remover uma rede utilize: `docker network rm <nome>`
+
+- Assim a rede não estará mais disponível para utilizarmos
+
+- Devemos tomar cuidado com os containers já conectados
+
+- Para remover redes em massa utilizamos: `docker network prune`
+
+## Instalando o Postman
+
+- Vamos criar uma API para testar a conexão entre containers;
+
+- Para isso vamos utilizar o software [Postman](https://www.postman.com), que é o mais utilizado do mercado para desenvolvimento de APIs;
+
+- Link: https://www.postman.com
