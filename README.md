@@ -376,3 +376,18 @@ Entre containers**: comunicação que utiliza o driver bridge e permite comunica
 - Para isso vamos utilizar o software [Postman](https://www.postman.com), que é o mais utilizado do mercado para desenvolvimento de APIs;
 
 - Link: https://www.postman.com
+
+## Conexão com o Host
+
+- Para conectar um container com o Host do docker utilizamos o ip: host.docker.internal
+
+## Conexão entre containers
+
+- Para conectar containers é necessário ter uma rede **bridge** para fazer esta conexão.
+
+## Conectar container
+
+- Para conectar um container a uma rede utilizamos o comando:
+
+- `docker network connect <rede> <container>`
+
