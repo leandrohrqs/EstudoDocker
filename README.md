@@ -391,3 +391,89 @@ Entre containers**: comunicação que utiliza o driver bridge e permite comunica
 
 - `docker network connect <rede> <container>`
 
+## Desconectando um container
+
+- Para desconectar um container utilizamos:
+
+- `docker network disconnect <rede> <container>`
+
+## Inspecionando redes
+
+- Para inspecionar uma rede utilizamos:
+
+- `docker network inspect <rede>`
+
+## Introdução à YAML
+
+Yaml é uma linguagem de serialização (configuração), utilizada geralmente para arquivos de configuração, inclusive do Docker, para configurar o Docker compose. As extensões de seus arquivos são: .yml ou .yaml
+
+## Criando arquivo YAML
+
+- O arquivo geralmente possui valores e chaves que é de onde vamos retirar as configurações do nosso sistema.
+
+## Identação no YAML
+
+- O fim de uma linha indica o fim de uma instrução, não há ponto e virgula.
+
+- A identação deve conter um ou mais espaços, e não devemos utilizar tab.
+
+- E cada uma define um novo bloco
+
+- O espaço é obrigatório após a declaração da chave
+
+## Comentários no YAML
+
+- Para comentar no arquivo utilizamos o " # "
+
+## Dados numéricos
+
+- Int = 2
+
+- Float = 2.1
+
+## Strings
+
+- **Sem aspas**: Este é um texto válido
+
+- **Com aspas**: Este também
+
+## Valores nulos
+
+- **Dados nulos**: `~` ou `null`
+
+## Boolean
+
+- `True` e `On` = Verdadeiro
+
+- `False` e `Off` = Falso
+
+## Listas
+
+- Primeira: `[1, 2, 3, 4, 5]`
+
+- Segunda: 
+```yaml
+items:
+  - 1
+  - 2
+  - 3
+```
+## Dicionários
+
+- Primeira: `{a: 1, b: 2, c: 3}`
+
+- Segunda:
+```yaml
+objeto:
+  chave a: 1
+  chave b: 2
+```
+## Docker Compose
+
+- Docker Compose é uma ferramenta para rodar múltiplos containers
+
+- Esta operação é orquestrada por um arquivo de configuração
+
+- É uma forma de rodar múltiplos builds e runs com um comando
+
+- Em projetos maiores é essencial o uso do Compose
