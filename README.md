@@ -477,3 +477,19 @@ objeto:
 - É uma forma de rodar múltiplos builds e runs com um comando
 
 - Em projetos maiores é essencial o uso do Compose
+
+## Criando o Compose
+
+- Primeiramente deve ser criado o arquivo: **docker-compose.yml** na raiz do projeto
+
+- Este arquivo irá coordenar os containers e imagens, e possui algumas chaves muito utilizadas
+
+- **version**: Versão do Compose
+
+- **services**: Containers/serviços que vão rodar nesta aplicação
+
+- **volumes**: Possível adição de volumes
+
+## Rodando o Compose
+
+- Para rodar o arquivo utilizamos: `docker compose up`
